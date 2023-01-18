@@ -1,0 +1,10 @@
+defaults:
+  shell: /bin/bash
+  utc: true
+jobs:
+- name: hello-world
+  captureStderr: true
+  captureStdout: true
+  command: echo "Hello World!"
+  enabled: true
+  schedule: "*/2 * * * *"
