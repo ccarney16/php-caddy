@@ -20,6 +20,14 @@ function startServer {
         done
     fi
 
+    # Output loaded php modules before runtime.
+    printf "[init] Caddy Version: $(caddy version)\n"
+    _php_info=$(php -r "echo $PHP_VERSION;")
+    printf "[init] PHP Version: $_php_info\n"
+    printf "[init] Loaded PHP Modules:"
+    php -m | tr '\n' ' ' | sed 's/\[/\n  &/g'
+    printf "\n"
+
     echo "--- Starting Web Server ---"
 
     # Run these as jobs and monitor their pid status
