@@ -15,8 +15,8 @@ function startServer {
     # Allows this container to have extra functionality on init
     if [ -d /entrypoint.d ]; then
         echo "[init] /entrypoint.d exists. Executing pre-start functions"
-        for exec in /entrypoint.d/*; do
-            $exec
+        for exec in /entrypoint.d/*.sh; do
+            source $exec
         done
     fi
 
