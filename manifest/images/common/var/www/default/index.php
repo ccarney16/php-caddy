@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Caddy works!</title>
+		<title>Welcome to caddy!</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="data:,">
@@ -223,7 +223,7 @@
 					<!-- Spanish --> <span class="lang">Felicidades!</span>
 					<!-- Chinese --> <span class="lang">恭喜!</span>
 					<!-- Hindi --> <span class="lang">बधाई हो!</span>
-					<!-- Russian --> <span class="lang">Поздравляю! </span>
+					<!-- Russian --> <span class="lang">Поздравляю!</span>
 					<span class="emoji">🎊</span>
 				</h1>
 				<p>

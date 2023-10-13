@@ -1,3 +1,6 @@
+## This is an example configuration used for this project. It is strongly recommended to
+## follow caddy documentation and edit this to your liking.
+
 :8080 {
     root * /var/www/default
     file_server

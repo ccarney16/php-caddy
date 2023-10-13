@@ -2,28 +2,30 @@ services:
   web:
     build:
       context: manifest/images/
-      dockerfile: php82/Dockerfile
-    image: docker.io/ccarney16/caddyserver:php-8.2
+      dockerfile: ${PHP_TAG:-php82}/Dockerfile
+    image: docker.io/ccarney16/php-caddy:${PHP_TAG:-php82}
     ports:
     - 8080:8080
     read_only: true
+    restart: unless-stopped
     volumes:
+    # - ./conf.d/Caddyfile.d:/etc/caddy/Caddyfile.d:ro
+    # - ./data/html:/html
     - caddyhome:/var/lib/caddy
     - tmpfs:/tmp
   cron:
     command: cron
-    image: docker.io/ccarney16/caddyserver:php-8.2
-    read_only: true
-    restart: always
+    image: docker.io/ccarney16/php-caddy:${PHP_TAG:-php82}
+    restart: unless-stopped
     volumes:
     - ./conf.d/yacron.d/:/etc/yacron.d
     volumes_from:
     - web
   # worker:
   #   command: whatever you need running persistently
-  #   image: docker.io/ccarney16/caddyserver:php-8.2
+  #   image: docker.io/ccarney16/php-caddy:${PHP_TAG:-php82}
   #   read_only: true
-  #   restart: always
+  #   restart: unless-stopped
   #   volumes_from:
   #   - web
 volumes:
